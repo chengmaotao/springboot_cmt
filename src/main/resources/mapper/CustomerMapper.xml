@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.dao.CustomerMapper">
+
+    
+    <select id="selectByUsername" parameterType="string" resultType="com.app.entity.Customer">
+        SELECT * from customer where `username` = #{username}
+    </select>
+
+    
+        <select id="selectByShortUrl" parameterType="string" resultType="Customer">
+        SELECT * from customer where short_url = #{shortUrl}
+    </select>
+    
+</mapper>  
