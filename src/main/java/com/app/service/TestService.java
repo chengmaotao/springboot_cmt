@@ -1,5 +1,7 @@
 package com.app.service;
 
+import java.math.BigDecimal;
+
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,6 +27,9 @@ public class TestService {
 	@Autowired
 	private CustomerMapper customerMapper;
 
+	@Autowired
+	private RedisHandler redisHandler;
+
 	private static Logger logger = LoggerFactory.getLogger(TestService.class);
 
 	public ApiResponse test01(ApiRequest apiRequest) throws ApiException {
@@ -40,22 +45,43 @@ public class TestService {
 			int t = 3 / num;
 			return null;
 		} else {
-			
+
 			Customer selectById = customerMapper.selectById(230707);
-			
+
 			logger.info("Customer  selectById: " + selectById);
-			
+
 			Customer selectByUsername = customerMapper.selectByUsername("13146603515");
-			
+
 			logger.info("Customer  selectByUsername: " + selectByUsername);
-			
+
 			Customer selectByShortUrl = customerMapper.selectByShortUrl("0c989b81b2");
 			logger.info("Customer  selectByShortUrl: " + selectByShortUrl);
-			
+
 			JSONObject data = new JSONObject();
 			data.put("name", "豆海霞");
 			data.put("日期", "2018-11-21");
 
+			
+			redisHandler.pubObject("objkey");
+			
+			redisHandler.putObject("tesobjKey", 10000);
+			
+			redisHandler.putString("bobo");
+			
+			redisHandler.putString("wen", 100000);
+			
+			String bobo = redisHandler.getString("bobo");
+			
+			String wen = redisHandler.getString("wen");
+			
+			
+			BigDecimal object = redisHandler.getObject("objkey");
+			System.out.println(object.stripTrailingZeros().toString());
+			
+			BigDecimal objectt = redisHandler.getObject("tesobjKey");
+			System.out.println(objectt.stripTrailingZeros().toString());
+			
+			
 			return genResponse(data);
 		}
 

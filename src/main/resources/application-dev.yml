@@ -9,3 +9,18 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     # 使用druid数据源
     type: com.alibaba.druid.pool.DruidDataSource
+
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password: cwl19910230
+    timeout: 10    #秒
+    jedis:
+      pool:
+        max-wait: 10
+        max-active: 8
+        max-idle: 8
+        min-idle: 2
+        test-while-idle: true
+        test-on-borrow: true

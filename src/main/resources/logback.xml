@@ -33,7 +33,7 @@
     </appender>
     
     <!--myibatis日志输出-->
-	<!-- <logger name="io.credittag.api.app.mapper" level="INFO"></logger> -->
+	<logger name="com.app.dao" level="DEBUG"></logger>
     
     <!-- 日志输出级别,优先取application.properties中的配置 -->
     <root level="INFO">
