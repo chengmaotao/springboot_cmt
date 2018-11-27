@@ -1,5 +1,6 @@
 package com.app.util;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -84,5 +85,11 @@ public class DateUtils {
 		calendarFirst.add(Calendar.DATE,1);
 		calendarFirst.add(Calendar.SECOND, -1);
 		return calendarFirst.getTime();
+	}
+	
+	
+	public static String dateyyyyMMddHHmmssFormat(Date date){
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		return sdf.format(date);
 	}
 }

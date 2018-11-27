@@ -24,3 +24,13 @@ spring:
         min-idle: 2
         test-while-idle: true
         test-on-borrow: true
+        
+  application: 
+    name: spirng-boot-rabbitmq
+  rabbitmq: 
+    host: 127.0.0.1
+    port: 5672
+    username: admin
+    password: cwl19910230
+    publisher-confirms: true
+    virtual-host: /wbb
