@@ -62,17 +62,6 @@ public class TestService {
 			data.put("日期", "2018-11-21");
 
 			
-			redisHandler.pubObject("objkey");
-			
-			redisHandler.putObject("tesobjKey", 10000);
-			
-			redisHandler.putString("bobo");
-			
-			redisHandler.putString("wen", 100000);
-			
-			String bobo = redisHandler.getString("bobo");
-			
-			String wen = redisHandler.getString("wen");
 			
 			
 			BigDecimal object = redisHandler.getObject("objkey");

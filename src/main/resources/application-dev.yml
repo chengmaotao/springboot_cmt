@@ -32,5 +32,9 @@ spring:
     port: 5672
     username: admin
     password: cwl19910230
+    virtual-host: /ctc
     publisher-confirms: true
-    virtual-host: /wbb
+    publisher-returns: true
+    listener: 
+      acknowledge-mode: MANUAL
+

@@ -16,25 +16,23 @@ public class RedisHandler {
 	@Autowired
 	private RedisTemplate<Object, Object> redisTemplate;
 
-	public void putString(String key, long expires) {
-		stringTemplate.opsForValue().set(key, "博",expires, TimeUnit.SECONDS);  // 秒
+	public void putString(String key,String val, long expires) {
+		stringTemplate.opsForValue().set(key, val,expires, TimeUnit.SECONDS);  // 秒
 	}
 
-	public void putString(String key) {
-		stringTemplate.opsForValue().set(key, "博bo");
+	public void putString(String key,String val) {
+		stringTemplate.opsForValue().set(key, val);
 	}
 
 	public String getString(String key) {
 		return stringTemplate.opsForValue().get(key);
 	}
 
-	public void putObject(String key, long expires) {
-		BigDecimal val = new BigDecimal("369.123");
+	public void putObject(String key, BigDecimal val,long expires) {
 		redisTemplate.opsForValue().set(key, val, expires, TimeUnit.MINUTES); // 分钟
 	}
 
-	public void pubObject(String key) {
-		BigDecimal val = new BigDecimal("741.258");
+	public void pubObject(String key,Object val) {
 		redisTemplate.opsForValue().set(key, val);
 	}
 
